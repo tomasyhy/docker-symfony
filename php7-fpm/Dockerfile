@@ -4,10 +4,15 @@ ARG TIMEZONE
 
 MAINTAINER Maxence POUTORD <maxence.poutord@gmail.com>
 
+RUN curl -sL https://deb.nodesource.com/setup_8.x -o nodesource_setup.sh
+RUN bash nodesource_setup.sh
+
 RUN apt-get update && apt-get install -y \
     openssl \
     git \
-    unzip
+    unzip \
+    nodejs \
+    build-essential
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
