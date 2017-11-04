@@ -24,7 +24,7 @@ services:
             - ${SYMFONY_APP_PATH}:/var/www/symfony
             - ./logs/symfony:/var/www/symfony/app/logs
         networks:
-            brandshop-network:
+            my-network:
                 ipv4_address: 192.168.0.5
 
     nginx:
