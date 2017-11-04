@@ -13,7 +13,7 @@ services:
             MYSQL_USER: ${MYSQL_USER}
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
         networks:
-            brandshop-network:
+            my-network:
                 ipv4_address: 192.168.0.4
     php:
         build:
@@ -36,10 +36,10 @@ services:
         volumes:
             - ./logs/nginx/:/var/log/nginx
         networks:
-            brandshop-network:
+            my-network:
                 ipv4_address: 192.168.0.6
 networks:
-    brandshop-network:
+    my-network:
         driver: bridge
         ipam:
             config:
