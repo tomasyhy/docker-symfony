@@ -21,7 +21,7 @@ services:
             args:
                 TIMEZONE: ${TIMEZONE}
         volumes:
-            - ${SYMFONY_APP_PATH}:/var/www/symfony
+            - ${APP_PATH}:/var/www
             - ./logs/symfony:/var/www/symfony/app/logs
         networks:
             my-network:
