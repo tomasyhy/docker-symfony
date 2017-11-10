@@ -45,4 +45,4 @@ RUN echo 'alias sf3="php bin/console"' >> ~/.bashrc
 
 RUN usermod -u 1000 www-data
 
-WORKDIR /var/www
+WORKDIR /var/www/symfony

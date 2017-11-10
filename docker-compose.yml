@@ -14,18 +14,17 @@ services:
             MYSQL_PASSWORD: ${MYSQL_PASSWORD}
         networks:
             my-network:
-                ipv4_address: 192.168.0.4
+
     php:
         build:
             context: php7-fpm
             args:
                 TIMEZONE: ${TIMEZONE}
         volumes:
-            - ${APP_PATH}:/var/www
+            - ${SYMFONY_APP_PATH}:/var/www/symfony
             - ./logs/symfony:/var/www/symfony/app/logs
         networks:
             my-network:
-                ipv4_address: 192.168.0.5
 
     nginx:
         build: nginx
@@ -37,13 +36,13 @@ services:
             - ./logs/nginx/:/var/log/nginx
         networks:
             my-network:
-                ipv4_address: 192.168.0.6
+
 networks:
-    my-network:
+    symfony-network:
         driver: bridge
         ipam:
             config:
-            - subnet: 192.168.0.0/24
-              gateway: 192.168.0.1
+            - subnet: ${SUBNET}
+              gateway: ${GETAWAY}
 
 
